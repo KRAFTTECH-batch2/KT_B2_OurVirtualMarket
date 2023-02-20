@@ -21,6 +21,10 @@ public class HomePage extends BasePage{
 
 //enes
 
+    public static void main(String[] args) {
+        System.out.println("\"hello world\" = " + "hello world");
+    }
+
 
 
 
