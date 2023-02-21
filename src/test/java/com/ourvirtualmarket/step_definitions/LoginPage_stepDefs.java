@@ -33,4 +33,9 @@ public class LoginPage_stepDefs {
         String expected = "Logout";
         Assert.assertEquals(expected,actual);
     }
+
+    @When("The user should input {string} and {string}")
+    public void the_user_should_input_and(String email, String password) {
+        loginPage.loginUser(email, password);
+    }
 }
