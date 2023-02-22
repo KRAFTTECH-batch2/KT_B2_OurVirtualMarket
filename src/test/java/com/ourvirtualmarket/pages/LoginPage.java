@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    @FindBy(xpath = "//input[@name='email']")
+    @FindBy(xpath = "//input[@id='email']")
     public WebElement email_loc;
 
     @FindBy(xpath = "//input[@name='password']")
@@ -14,6 +14,9 @@ public class LoginPage extends BasePage {
 
     @FindBy(css = "#send2")
     public WebElement loginButton_loc;
+
+    @FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+    public WebElement wrongMailOrPasswordMessage_loc;
 
 
     public void loginUser(String email, String password) {
