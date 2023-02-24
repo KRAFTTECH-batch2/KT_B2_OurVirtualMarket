@@ -40,9 +40,9 @@ public class LoginPage_stepDefs {
     }
 
     @Then("The user should be able to see warning message as {string}")
-    public void the_user_should_be_able_to_see_warning_message_as(String warningMessage) {
-        String actual = loginPage.wrongMailOrPasswordMessage_loc.getText();
-        String expected = warningMessage;
-        Assert.assertEquals(expected,actual);
+    public void the_user_should_be_able_to_see_warning_message_as(String expectedMessage) {
+
+            String actual = loginPage.wrongMailOrPasswordMessage_loc.getText();
+            Assert.assertEquals(expectedMessage,actual);
     }
 }

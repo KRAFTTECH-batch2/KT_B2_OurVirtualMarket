@@ -11,7 +11,7 @@ Feature: Login Functionality Test
     When The user should input "krafttest@proje.com" and "test123"
     Then The user should be able to login
 
-
+  @login
   Scenario Outline: The user should not login when any or none of the credentials is filled in
     # valid email: krafttest@gmail.com / valid password: kraft123
     Given The user is on the login page
@@ -36,7 +36,7 @@ Feature: Login Functionality Test
       | krafttest@proje.com | test-123 | Warning: No match for E-Mail Address and/or Password. |
       | krafttest@proje.com | *test123 | Warning: No match for E-Mail Address and/or Password. |
 
-  @login
+
   Scenario Outline: The user should be login with INVALID EMAIL - VALID PASSWORD
     # valid email: krafttest@gmail.com / valid password: kraft123
     Given The user is on the login page
@@ -49,3 +49,18 @@ Feature: Login Functionality Test
       | krafttest@gmailcom | kraft123 | Warning: No match for E-Mail Address and/or Password. |
       | krafttest@gmail.co | kraft123 | Warning: No match for E-Mail Address and/or Password. |
 
+
+  Scenario Outline: The user should try to login MORE THAN 5 TIMES with INVALID PASSWORD
+      # valid email: krafttest@yahoo.com / valid password: 123test
+    Given The user is on the login page
+    When The user should input "<email>" and "<password>"
+    Then The user should be able to see warning message as "<message>"
+    Examples:
+      | email               | password         | message                                                                                          |
+      | krafttest@yahoo.com | invalid password | Warning: No match for E-Mail Address and/or Password.                                            |
+      | krafttest@yahoo.com | invalid password | Warning: No match for E-Mail Address and/or Password.                                            |
+      | krafttest@yahoo.com | invalid password | Warning: No match for E-Mail Address and/or Password.                                            |
+      | krafttest@yahoo.com | invalid password | Warning: No match for E-Mail Address and/or Password.                                            |
+      | krafttest@yahoo.com | invalid password | Warning: No match for E-Mail Address and/or Password.                                            |
+      | krafttest@yahoo.com | 123test          | Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour. |
+      | krafttest@yahoo.com | 123test          | Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour. |
