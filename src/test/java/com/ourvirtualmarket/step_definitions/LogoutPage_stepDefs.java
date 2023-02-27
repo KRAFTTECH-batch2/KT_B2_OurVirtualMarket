@@ -47,5 +47,6 @@ public class LogoutPage_stepDefs {
         Driver.get().navigate().back();
         Assert.assertTrue(logoutPage.text1_loc.isDisplayed());
 
+
     }
 }
