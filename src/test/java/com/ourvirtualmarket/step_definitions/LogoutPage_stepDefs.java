@@ -21,6 +21,7 @@ public class LogoutPage_stepDefs {
         HomePage.closePopup_mtd();
         loginPage.loginUser();
 
+
     }
     @When("The user clicks on logout button")
     public void the_user_clicks_on_logout_button() {
@@ -38,6 +39,7 @@ public class LogoutPage_stepDefs {
         String actualText3 = logoutPage.text3_loc.getText();
         String expectedText3="Your shopping cart has been saved, the items inside it will be restored whenever you log back into your account.";
         Assert.assertEquals(expectedText3,actualText3);
+
 
     }
     @Then("The user clicks on continue button")
