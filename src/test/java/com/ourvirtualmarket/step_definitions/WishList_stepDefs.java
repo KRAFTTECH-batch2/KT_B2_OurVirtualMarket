@@ -46,4 +46,16 @@ public class WishList_stepDefs {
         String actualMessage = wishListPage.addToCartSuccessfullyHeader_loc.getText();
         Assert.assertEquals(expectedMessage,actualMessage);
     }
+
+    @When("The user click remove button of any product")
+    public void the_user_click_remove_button_of_any_product() {
+        wishListPage.removeButtonOnWishListPage_loc.click();
+    }
+
+    @Then("The user should be able to see success message")
+    public void the_user_should_be_able_to_see_success_message() {
+        BrowserUtils.waitFor(2);
+        Assert.assertTrue(wishListPage.removeToListSuccessMessage_loc.isDisplayed());
+    }
+
 }

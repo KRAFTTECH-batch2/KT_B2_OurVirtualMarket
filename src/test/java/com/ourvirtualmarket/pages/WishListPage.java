@@ -17,7 +17,7 @@ public class WishListPage extends BasePage {
     @FindBy(xpath = "//h4[@class='modal-title']")
     public WebElement addToCartSuccessfullyHeader_loc;
 
-    @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    @FindBy(xpath = "//*[contains(text(),'Success: You have modified your wish list!')]")
     public WebElement removeToListSuccessMessage_loc;
 
     @FindBy(xpath = "//div[@id='so_listing_tabs_69']//a[@title='Nicky Clarke NHD146 Hair Therapy Touch Control Hair Dryer']")
