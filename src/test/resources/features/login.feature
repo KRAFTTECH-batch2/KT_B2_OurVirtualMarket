@@ -1,20 +1,20 @@
 Feature: Login Functionality Test
 
-  Scenario: The user should be login with valid credentials
+  Background:
     Given The user is on the login page
+
+  Scenario: The user should be login with valid credentials
     When The user should fill in valid credentials
     Then The user should be able to login
 
 
   Scenario: The user should be login with parameters
-    Given The user is on the login page
     When The user should input "krafttest@proje.com" and "test123"
     Then The user should be able to login
 
   @login
   Scenario Outline: The user should not login when any or none of the credentials is filled in
     # valid email: krafttest@gmail.com / valid password: kraft123
-    Given The user is on the login page
     When The user should input "<email>" and "<password>"
     Then The user should be able to see warning message as "<message>"
     Examples:
@@ -26,7 +26,6 @@ Feature: Login Functionality Test
 
   Scenario Outline: The user should be login with VALID EMAIL - INVALID PASSWORD
     # valid email: krafttest@proje.com / valid password: test123
-    Given The user is on the login page
     When The user should input "<email>" and "<password>"
     Then The user should be able to see warning message as "<message>"
     Examples:
@@ -39,7 +38,6 @@ Feature: Login Functionality Test
 
   Scenario Outline: The user should be login with INVALID EMAIL - VALID PASSWORD
     # valid email: krafttest@gmail.com / valid password: kraft123
-    Given The user is on the login page
     When The user should input "<email>" and "<password>"
     Then The user should be able to see warning message as "<message>"
     Examples:
@@ -52,7 +50,6 @@ Feature: Login Functionality Test
 
   Scenario Outline: The user should try to login MORE THAN 5 TIMES with INVALID PASSWORD
       # valid email: krafttest@yahoo.com / valid password: 123test
-    Given The user is on the login page
     When The user should input "<email>" and "<password>"
     Then The user should be able to see warning message as "<message>"
     Examples:
